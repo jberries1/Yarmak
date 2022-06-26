@@ -49,12 +49,7 @@ public class Attack : MonoBehaviour
 		yield return new WaitForSeconds(0.25f);
 		canAttack = true;
 	}
-	public void AttackButton()
-    {
-		canAttack = false;
-		animator.SetBool("IsAttacking", true);
-		StartCoroutine(AttackCooldown());
-	}
+
 	public void DoDashDamage()
 	{
 		dmgValue = Mathf.Abs(dmgValue);

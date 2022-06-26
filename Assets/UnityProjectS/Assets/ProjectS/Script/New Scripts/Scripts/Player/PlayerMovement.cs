@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using  Joystick = CoolJoystick.Joystick;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -10,20 +8,17 @@ public class PlayerMovement : MonoBehaviour {
 	public Animator animator;
 
 	public float runSpeed = 40f;
-	public Joystick Joystick;
 
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool dash = false;
-	
 
 	//bool dashAxis = false;
 	
 	// Update is called once per frame
 	void Update () {
 
-		/*horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;*/
-		horizontalMove = Joystick.Horizontal * runSpeed;
+		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
 		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
@@ -52,12 +47,7 @@ public class PlayerMovement : MonoBehaviour {
 		*/
 
 	}
-	public void JumpButton()
-    {
-		
-		jump = true;
 
-	}
 	public void OnFall()
 	{
 		animator.SetBool("IsJumping", true);
